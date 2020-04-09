@@ -10,6 +10,6 @@ app.get('/secret', (req, res) => {
   res.send(`mysecret: ${process.env.MYSECRET}`);
 });
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log('Server is up on 8080');
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Server is up on 3000');
 });
