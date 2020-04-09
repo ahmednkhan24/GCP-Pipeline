@@ -11,9 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run a one-line script
-      run: echo Hello, world!
-
     - name: Build Docker image
       run: docker build . --tag gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
     
@@ -22,3 +19,6 @@ jobs:
       with:
           service_account_email: ${{ secrets.GCLOUD_EMAIL }}
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
+
+    - name: Configure Docker to use Google Cloud Platform
+      run: "gcloud auth configure-docker --quiet"
